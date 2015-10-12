@@ -1,0 +1,17 @@
+<%= render partial: '/header' %>
+
+<h2><%= @post.title %></h2>
+
+<blockquote>
+  <p><%= @post.content %></p>
+  <footer><cite title="Source Title"><%= @post.author %></cite></footer>
+</blockquote>
+Tags: <% @post.posttags.each do |tag| %>
+      <%= tag.tag.name %>.
+<% end %>
+<br/>
+<%= link_to "Edit post content", edit_post_path %>
+|
+  <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= render partial: '/footer' %>

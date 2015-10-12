@@ -1,0 +1,18 @@
+<%= render partial: '/header' %>
+
+<h1>Post Index</h1>
+
+<% @posts.each do |post| %>
+  <div class="posts"
+  <p>
+  <h4><%= link_to "#{post.title}", post_path(post.id) %></h4>
+    by: <%= post.author %>
+    <br/>
+    Tags: <% post.posttags.each do |tag| %>
+      <%= tag.tag.name %>.
+    <% end %>
+  </p>
+  </div>
+<% end %>
+
+<%= render partial: "/footer" %>
